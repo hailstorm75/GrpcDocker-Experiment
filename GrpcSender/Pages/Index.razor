@@ -1,0 +1,70 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+
+<PageTitle>Index</PageTitle>
+
+<div class="container">
+  <EditForm EditContext="m_editContext" OnSubmit="SendToBlazor">
+    <div class="row">
+      <div class="col">
+        To Blazor
+      </div>
+      <div class="col-6">
+        <InputText @bind-Value="BlazorMessage"/>
+      </div>
+      <div class="col">
+        <button type="submit">Send</button>
+      </div>
+    </div>
+  </EditForm>
+  <EditForm EditContext="m_editContext" OnSubmit="SendToConsole">
+  <div class="row">
+    <div class="col">
+      To Console
+    </div>
+    <div class="col-6">
+      <InputText @bind-Value="ConsoleMessage"/>
+    </div>
+    <div class="col">
+      <button>Send</button>
+    </div>
+  </div>
+  </EditForm>
+
+</div>
+
+@code {
+
+  private const string MY_ID = "Sender";
+  private EditContext m_editContext = null!;
+
+  /// <summary>
+  /// Message to the Blazor client
+  /// </summary>
+  [Required]
+  public string BlazorMessage { get; set; } = string.Empty;
+
+  /// <summary>
+  /// Message to the Console client
+  /// </summary>
+  [Required]
+  public string ConsoleMessage { get; set; } = string.Empty;
+
+  /// <inheritdoc />
+  protected override void OnInitialized()
+  {
+    base.OnInitialized();
+
+    m_editContext = new EditContext(this);
+  }
+
+  private void SendToBlazor()
+  {
+    throw new NotImplementedException();
+  }
+
+  private void SendToConsole()
+  {
+    throw new NotImplementedException();
+  }
+}

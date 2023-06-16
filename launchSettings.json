@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "grpcserver": "StartDebugging",
+        "grpcsender": "StartDebugging",
+        "grpclistener": "StartDebugging",
+        "consolelistener": "StartDebugging"
+      }
+    }
+  }
+}
