@@ -23,10 +23,14 @@ public class GreeterService : Greeter.GreeterBase
 
   /// <inheritdoc />
   public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-    => Task.FromResult(new HelloReply
+  {
+    m_logger.LogInformation("Greeting: " + request.Name);
+
+    return Task.FromResult(new HelloReply
     {
       Message = "Hello " + request.Name
     });
+  }
 
   /// <inheritdoc />
   public override Task<Empty> SendNotification(Notification request, ServerCallContext context)

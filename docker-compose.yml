@@ -4,40 +4,41 @@ version: '3.4'
 services:
   grpcserver:
     container_name: "server"
+    hostname: "server"
     image: ${DOCKER_REGISTRY-}grpcserver
     build:
       context: .
       dockerfile: GrpcServer/Dockerfile
 
-  grpcsender:
-    container_name: "sender"
-    image: ${DOCKER_REGISTRY-}grpcsender
-    depends_on: [
-      "grpcserver"
-    ]
-    build:
-      context: .
-      dockerfile: GrpcSender/Dockerfile
+  #grpcsender:
+  #  container_name: "sender"
+  #  image: ${DOCKER_REGISTRY-}grpcsender
+  #  depends_on: [
+  #    "grpcserver"
+  #  ]
+  #  build:
+  #    context: .
+  #    dockerfile: GrpcSender/Dockerfile
 
 
-  grpclistener:
-    container_name: "blazor-listener"
-    image: ${DOCKER_REGISTRY-}grpclistener
-    depends_on: [
-      "grpcserver"
-    ]
-    build:
-      context: .
-      dockerfile: GrpcListener/Dockerfile
+  #grpclistener:
+  #  container_name: "blazor-listener"
+  #  image: ${DOCKER_REGISTRY-}grpclistener
+  #  depends_on: [
+  #    "grpcserver"
+  #  ]
+  #  build:
+  #    context: .
+  #    dockerfile: GrpcListener/Dockerfile
 
 
-  consolelistener:
-    container_name: "console-listener"
-    image: ${DOCKER_REGISTRY-}consolelistener
-    depends_on: [
-      "grpcserver"
-    ]
-    build:
-      context: .
-      dockerfile: ConsoleListener/Dockerfile
+  #consolelistener:
+  #  container_name: "console-listener"
+  #  image: ${DOCKER_REGISTRY-}consolelistener
+  #  depends_on: [
+  #    "grpcserver"
+  #  ]
+  #  build:
+  #    context: .
+  #    dockerfile: ConsoleListener/Dockerfile
 
